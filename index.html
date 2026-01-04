@@ -5,154 +5,105 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>¡Feliz cumpleaños!</title>
   <style>
-    :root {
-      --card: #ffffff;
-    }
+    :root { --card: #ffffff; }
     html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
+      margin: 0; padding: 0; width: 100%; min-height: 100%;
       font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: url("https://th.bing.com/th/id/R.7c9aece83b0355da6f208071db4acaae?rik=WnfZa0fx4cBuBQ&pid=ImgRaw&r=0") center top repeat-y fixed;
-      background-size: cover;
-      color: #333;
-      overflow-x: hidden;
+      background-size: cover; color: #333; overflow-x: hidden;
     }
-    .container {
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 16px;
-    }
+    .container { min-height: 100vh; display: grid; place-items: center; padding: 16px; }
     .card {
-      width: 100%;
-      max-width: 720px;
-      background: var(--card);
-      border-radius: 16px;
-      border: 3px solid #fff;
+      width: 100%; max-width: 720px; background: var(--card);
+      border-radius: 16px; border: 3px solid #fff;
       box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
-      overflow: hidden;
-      margin-bottom: 24px;
-      animation: float 6s ease-in-out infinite;
+      margin-bottom: 24px; animation: float 6s ease-in-out infinite;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    .banner {
-      background: #000;
-      padding: 24px;
-      text-align: center;
-    }
+    @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+    .banner { background:#000; padding:24px; text-align:center; position:relative; overflow:hidden; }
     .banner h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: #fff;
-      text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
-      animation: glow 2s ease-in-out infinite alternate;
+      margin:0; font-size:1.8rem; color:#fff;
+      text-shadow:0 0 8px #fff,0 0 16px #fff,0 0 32px #fff;
+      animation:glow 2s ease-in-out infinite alternate;
     }
-    @keyframes glow {
-      from { text-shadow: 0 0 8px #fff, 0 0 16px #fff; }
-      to { text-shadow: 0 0 16px #ff00ff, 0 0 32px #ff00ff; }
+    @keyframes glow { from{text-shadow:0 0 8px #fff,0 0 16px #fff;} to{text-shadow:0 0 16px #ff00ff,0 0 32px #ff00ff;} }
+    .name { color:#aa00ff; text-shadow:0 0 8px #aa00ff,0 0 16px #aa00ff,0 0 32px #aa00ff; }
+    .content { padding:20px; text-align:center; }
+    .content p { margin:0 0 8px; font-size:1rem; line-height:1.4; }
+    .footer { padding:12px; text-align:center; font-size:0.9rem; color:#666; }
+    .confetti { font-size:1.5rem; }
+
+    /* Confeti animado */
+    .confetti-piece {
+      position: absolute;
+      width: 10px; height: 10px;
+      background: #ff00ff;
+      animation: fall 4s linear infinite;
     }
-    .name {
-      color: #aa00ff;
-      text-shadow: 0 0 8px #aa00ff, 0 0 16px #aa00ff, 0 0 32px #aa00ff;
-    }
-    .content {
-      padding: 20px;
-      text-align: center;
-    }
-    .content p {
-      margin: 0 0 8px;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-    .footer {
-      padding: 12px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .confetti {
-      font-size: 1.5rem;
-    }
-    /* Cartas pequeñas para comentarios */
-    .comments {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding: 12px;
-    }
-    .comment-card {
-      flex: 1 1 100%;
-      max-width: 320px;
-      background: var(--card);
-      border-radius: 12px;
-      border: 2px solid #fff;
-      box-shadow: 0 0 6px #fff, 0 0 12px #fff;
-      padding: 12px;
-      text-align: center;
-      font-size: 0.9rem;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
-    .comment-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 12px #ff00ff, 0 0 24px #ff00ff;
-    }
-    .comment-card h3 {
-      margin: 0 0 6px;
-      font-size: 0.95rem;
-      color: #fff;
-      background: #430077;
-      padding: 4px;
-      border-radius: 6px;
-      text-shadow: 0 0 6px #fff, 0 0 12px #fff;
-    }
-    textarea {
-      width: 100%;
-      min-height: 50px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      padding: 6px;
-      resize: none;
-      font-family: inherit;
-      font-size: 0.9rem;
-    }
-    .hint {
-      font-size: 0.8rem;
-      color: #555;
-      margin-top: 4px;
-      font-style: italic;
-    }
-    .send-btn {
-      margin-top: 6px;
-      padding: 6px 10px;
-      border: none;
-      border-radius: 6px;
-      background: #430077;
-      color: #fff;
-      cursor: pointer;
-      text-shadow: 0 0 6px #fff;
-      font-size: 0.85rem;
-    }
-    .send-btn:hover {
-      background: #6600cc;
+    @keyframes fall {
+      0% { transform: translateY(-20px) rotate(0deg); opacity:1; }
+      100% { transform: translateY(200px) rotate(360deg); opacity:0; }
     }
 
-    /* Responsivo para pantallas pequeñas */
-    @media (max-width: 480px) {
-      .banner h1 {
-        font-size: 1.4rem;
-      }
-      .content p {
-        font-size: 0.95rem;
-      }
-      .comment-card {
-        max-width: 100%;
-      }
+    .comments { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; padding:12px; }
+    .comment-card {
+      flex:1 1 100%; max-width:320px; background:var(--card);
+      border-radius:12px; border:2px solid #fff;
+      box-shadow:0 0 6px #fff,0 0 12px #fff;
+      padding:12px; text-align:center; font-size:0.9rem;
+      transition:transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeIn 0.8s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    .comment-card:hover { transform:translateY(-4px); box-shadow:0 0 12px #ff00ff,0 0 24px #ff00ff; }
+    .comment-card h3 {
+      margin:0 0 6px; font-size:0.95rem; color:#fff;
+      background:#430077; padding:4px; border-radius:6px;
+      text-shadow:0 0 6px #fff,0 0 12px #fff;
+    }
+    input, textarea {
+      width:100%; border-radius:6px; border:1px solid #ccc;
+      padding:6px; font-size:0.9rem; margin-bottom:6px;
+    }
+    textarea { min-height:50px; resize:none; }
+    .hint { font-size:0.8rem; color:#555; margin-top:4px; font-style:italic; }
+    .send-btn, .add-btn, .reset-btn, .heart-btn {
+      margin-top:6px; padding:6px 10px; border:none; border-radius:6px;
+      background:#430077; color:#fff; cursor:pointer;
+      font-size:0.85rem; animation: pulse 2s infinite;
+    }
+    .send-btn:hover, .add-btn:hover, .reset-btn:hover { background:#6600cc; }
+    @keyframes pulse {
+      0% { transform:scale(1); }
+      50% { transform:scale(1.05); }
+      100% { transform:scale(1); }
+    }
+    .heart-btn {
+      background: transparent;
+      color: red;
+      font-size: 1.2rem;
+      text-shadow: none;
+      animation: none;
+    }
+    .heart-btn:hover { transform: scale(1.2); }
+    .heart-count {
+      font-size: 0.9rem;
+      color: #d00;
+      margin-left: 6px;
+    }
+    .thanks {
+      color: green;
+      font-style: italic;
+      margin-top: 8px;
+      opacity: 0;
+      animation: fadeInThanks 1s forwards;
+    }
+    @keyframes fadeInThanks {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -163,6 +114,10 @@
       <div class="banner">
         <div class="confetti">🎉🎂✨</div>
         <h1>¡Feliz cumpleaños, <span class="name"> Trini </span>!</h1>
+        <!-- Confeti dinámico -->
+        <div class="confetti-piece" style="left:20%; animation-delay:0s;"></div>
+        <div class="confetti-piece" style="left:50%; animation-delay:1s;"></div>
+        <div class="confetti-piece" style="left:70%; animation-delay:2s;"></div>
       </div>
       <div class="content">
         <p>✨ Hoy celebramos la maravilla de tu vida y la alegría que nos regalas cada día.</p>
@@ -174,67 +129,98 @@
   </div>
 
   <!-- Cartas pequeñas para comentarios -->
-  <div class="comments">
+  <div class="comments" id="comments">
     <div class="comment-card" data-id="1">
-      <h3>Mensaje de XXX:</h3>
+      <h3>Mensaje de:</h3>
+      <input type="text" placeholder="Tu nombre aquí">
       <textarea></textarea>
       <p class="hint">Escribe un mensaje para el cumpleañero</p>
       <button class="send-btn" onclick="saveComment(this)">Enviar</button>
-    </div>
-    <div class="comment-card" data-id="2">
-      <h3>Mensaje de XXX:</h3>
-      <textarea></textarea>
-      <p class="hint">Escribe un mensaje para el cumpleañero</p>
-      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
-    </div>
-    <div class="comment-card" data-id="3">
-      <h3>Mensaje de XXX:</h3>
-      <textarea></textarea>
-      <p class="hint">Escribe un mensaje para el cumpleañero</p>
-      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
-    </div>
-    <div class="comment-card" data-id="4">
-      <h3>Mensaje de XXX:</h3>
-      <textarea></textarea>
-      <p class="hint">Escribe un mensaje para el cumpleañero</p>
-      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
-    </div>
-    <div class="comment-card" data-id="4">
-      <h3>Mensaje de XXX:</h3>
-      <textarea></textarea>
-      <p class="hint">Escribe un mensaje para el cumpleañero</p>
-      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
-    </div>
-    <div class="comment-card" data-id="4">
-      <h3>Mensaje de XXX:</h3>
-      <textarea></textarea>
-      <p class="hint">Escribe un mensaje para el cumpleañero</p>
-      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+      <div>
+        <button class="heart-btn" onclick="likeMessage(this)">❤️</button>
+        <span class="heart-count">0</span>
+      </div>
     </div>
   </div>
 
+  <!-- Botones extras -->
+  <div style="text-align:center; margin:20px;">
+    <button class="add-btn" onclick="addCard()">➕ Añadir otro mensaje</button>
+    <button class="reset-btn" onclick="resetLikes()">🔄 Reiniciar corazones</button>
+  </div>
+
   <script>
-    // Al cargar la página, recuperar comentarios guardados
+    // Recuperar comentarios guardados
     window.onload = function() {
       document.querySelectorAll(".comment-card").forEach(card => {
         const id = card.getAttribute("data-id");
-        const saved = localStorage.getItem("comment_" + id);
-        if (saved) {
-          card.querySelector("textarea").value = saved;
+        const savedMessage = localStorage.getItem("comment_" + id);
+        const savedName = localStorage.getItem("name_" + id);
+        const savedLikes = localStorage.getItem("likes_" + id);
+        if (savedMessage) {
+          card.querySelector("textarea").value = savedMessage;
+        }
+        if (savedName) {
+          card.querySelector("input").value = savedName;
+        }
+        if (savedLikes) {
+          card.querySelector(".heart-count").innerText = savedLikes;
         }
       });
-    };
-
-    // Guardar comentario en localStorage
+    };    
+    // Guardar comentario
     function saveComment(button) {
-      const card = button.parentElement;
+      const card = button.closest(".comment-card");
       const id = card.getAttribute("data-id");
-      const textarea = card.querySelector("textarea");
-      localStorage.setItem("comment_" + id, textarea.value);
-      alert("Comentario guardado ✅");
+      const message = card.querySelector("textarea").value;
+      const name = card.querySelector("input").value;
+      localStorage.setItem("comment_" + id, message);
+      localStorage.setItem("name_" + id, name);
+      const thanks = document.createElement("div");
+      thanks.className = "thanks";
+      thanks.innerText = "¡Gracias por tu mensaje!";
+      card.appendChild(thanks);
+      setTimeout(() => { thanks.remove(); }, 3000);
+    }
+    // Añadir nueva carta de comentario
+    function addCard() {
+      const commentsDiv = document.getElementById("comments");
+      const newId = commentsDiv.children.length + 1;
+      const newCard = document.createElement("div");
+      newCard.className = "comment-card";
+      newCard.setAttribute("data-id", newId);
+      newCard.innerHTML = `
+        <h3>Mensaje de:</h3>
+        <input type="text" placeholder="Tu nombre aquí">
+        <textarea></textarea>
+        <p class="hint">Escribe un mensaje para el cumpleañero</p>
+        <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+        <div>
+          <button class="heart-btn" onclick="likeMessage(this)">❤️</button>
+          <span class="heart-count">0</span>
+        </div>
+      `;
+      commentsDiv.appendChild(newCard);
+    }
+    // Función para dar "me gusta"
+    function likeMessage(button) {
+      const card = button.closest(".comment-card");
+      const heartCountSpan = card.querySelector(".heart-count");
+      let count = parseInt(heartCountSpan.innerText);
+      count++;
+      heartCountSpan.innerText = count;
+      const id = card.getAttribute("data-id");
+      localStorage.setItem("likes_" + id, count);
+    }
+    // Reiniciar todos los corazones
+    function resetLikes() {
+      document.querySelectorAll(".comment-card").forEach(card => {
+        const heartCountSpan = card.querySelector(".heart-count");
+        heartCountSpan.innerText = "0";
+        const id = card.getAttribute("data-id");
+        localStorage.setItem("likes_" + id, 0);
+      });
     }
   </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="es">
