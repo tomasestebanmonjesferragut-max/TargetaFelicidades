@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>¡Feliz cumpleaños!</title>
+  <style>
+    :root {
+      --card: #ffffff;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: url("https://th.bing.com/th/id/R.7c9aece83b0355da6f208071db4acaae?rik=WnfZa0fx4cBuBQ&pid=ImgRaw&r=0") center top repeat-y fixed;
+      background-size: cover;
+      color: #333;
+      overflow-x: hidden;
+    }
+    .container {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+    }
+    .card {
+      width: 100%;
+      max-width: 720px;
+      background: var(--card);
+      border-radius: 16px;
+      border: 3px solid #fff;
+      box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+      overflow: hidden;
+      margin-bottom: 24px;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .banner {
+      background: #000;
+      padding: 24px;
+      text-align: center;
+    }
+    .banner h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      color: #fff;
+      text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 32px #fff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 8px #fff, 0 0 16px #fff; }
+      to { text-shadow: 0 0 16px #ff00ff, 0 0 32px #ff00ff; }
+    }
+    .name {
+      color: #aa00ff;
+      text-shadow: 0 0 8px #aa00ff, 0 0 16px #aa00ff, 0 0 32px #aa00ff;
+    }
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+    .content p {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    .footer {
+      padding: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .confetti {
+      font-size: 1.5rem;
+    }
+    /* Cartas pequeñas para comentarios */
+    .comments {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding: 12px;
+    }
+    .comment-card {
+      flex: 1 1 100%;
+      max-width: 320px;
+      background: var(--card);
+      border-radius: 12px;
+      border: 2px solid #fff;
+      box-shadow: 0 0 6px #fff, 0 0 12px #fff;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.9rem;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .comment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 12px #ff00ff, 0 0 24px #ff00ff;
+    }
+    .comment-card h3 {
+      margin: 0 0 6px;
+      font-size: 0.95rem;
+      color: #fff;
+      background: #430077;
+      padding: 4px;
+      border-radius: 6px;
+      text-shadow: 0 0 6px #fff, 0 0 12px #fff;
+    }
+    textarea {
+      width: 100%;
+      min-height: 50px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      padding: 6px;
+      resize: none;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .hint {
+      font-size: 0.8rem;
+      color: #555;
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .send-btn {
+      margin-top: 6px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 6px;
+      background: #430077;
+      color: #fff;
+      cursor: pointer;
+      text-shadow: 0 0 6px #fff;
+      font-size: 0.85rem;
+    }
+    .send-btn:hover {
+      background: #6600cc;
+    }
+
+    /* Responsivo para pantallas pequeñas */
+    @media (max-width: 480px) {
+      .banner h1 {
+        font-size: 1.4rem;
+      }
+      .content p {
+        font-size: 0.95rem;
+      }
+      .comment-card {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Carta principal -->
+    <div class="card">
+      <div class="banner">
+        <div class="confetti">🎉🎂✨</div>
+        <h1>¡Feliz cumpleaños, <span class="name"> Trini </span>!</h1>
+      </div>
+      <div class="content">
+        <p>✨ Hoy celebramos la maravilla de tu vida y la alegría que nos regalas cada día.</p>
+        <p>🌸 Brindemos por tus sueños que florecen, por tus risas que iluminan, y por todos los momentos mágicos que están por venir.</p>
+        <p>🎂 Gracias por ser esa persona tan especial que hace que cada instante sea más bonito.</p>
+        <div class="footer">Con cariño Tommy 💖</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cartas pequeñas para comentarios -->
+  <div class="comments">
+    <div class="comment-card" data-id="1">
+      <h3>Mensaje de XXX:</h3>
+      <textarea></textarea>
+      <p class="hint">Escribe un mensaje para el cumpleañero</p>
+      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+    </div>
+    <div class="comment-card" data-id="2">
+      <h3>Mensaje de XXX:</h3>
+      <textarea></textarea>
+      <p class="hint">Escribe un mensaje para el cumpleañero</p>
+      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+    </div>
+    <div class="comment-card" data-id="3">
+      <h3>Mensaje de XXX:</h3>
+      <textarea></textarea>
+      <p class="hint">Escribe un mensaje para el cumpleañero</p>
+      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+    </div>
+    <div class="comment-card" data-id="4">
+      <h3>Mensaje de XXX:</h3>
+      <textarea></textarea>
+      <p class="hint">Escribe un mensaje para el cumpleañero</p>
+      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+    </div>
+    <div class="comment-card" data-id="4">
+      <h3>Mensaje de XXX:</h3>
+      <textarea></textarea>
+      <p class="hint">Escribe un mensaje para el cumpleañero</p>
+      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+    </div>
+    <div class="comment-card" data-id="4">
+      <h3>Mensaje de XXX:</h3>
+      <textarea></textarea>
+      <p class="hint">Escribe un mensaje para el cumpleañero</p>
+      <button class="send-btn" onclick="saveComment(this)">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    // Al cargar la página, recuperar comentarios guardados
+    window.onload = function() {
+      document.querySelectorAll(".comment-card").forEach(card => {
+        const id = card.getAttribute("data-id");
+        const saved = localStorage.getItem("comment_" + id);
+        if (saved) {
+          card.querySelector("textarea").value = saved;
+        }
+      });
+    };
+
+    // Guardar comentario en localStorage
+    function saveComment(button) {
+      const card = button.parentElement;
+      const id = card.getAttribute("data-id");
+      const textarea = card.querySelector("textarea");
+      localStorage.setItem("comment_" + id, textarea.value);
+      alert("Comentario guardado ✅");
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
